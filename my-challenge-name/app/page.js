@@ -135,11 +135,12 @@ export default function Home() {
 };
   
   return (
-    <div className="min-h-screen bg-gradient-to-b-from-[#050B21] to-[#0A1542] p-8">
+    <div className="min-h-screen bg-gradient-to-b-from-[#050A1D] to-[#09153F] px-4 py-8 md:px-6 md:py-8">
       <main className={`max-w-6xl mx-auto px-5 ${mode === 'dark' ? 'bg-blue-950' : 'bg-blue-100'}`}>
         <div className="flex flex-col justify-between py-5">
                           <div className="flex flex-row justify-between 
-                          py-5 px-10 items-between rounded object-contain text-white">
+                          py-5 px-10 items-between rounded-3xl object-contain text-white
+                          bg-[#1F2535]">
                             <Image src={'/assets/images/logo.svg'}
                             alt="logo"
                             height={200}
@@ -155,22 +156,49 @@ export default function Home() {
                             cursor-pointer"/>
                           </div>
 
-                            <div className="flex flex-row gap-4 justify-between items-center px-10">
+                            <div className="flex flex-row gap-4 justify-between items-center py-5 mt-10">
                               <div>
-                                <h1 className={`text-2xl ${mode === 'light' ? 'text-black' : 'text-white'}`}>
+                                <h1 className={`text-4xl font-bold ${mode === 'light' ? 'text-black' : 'text-white'} `}>
                                     Extensions List
                                 </h1>
 
                               </div>
                               {/* Action buttons */}
                                 <div className="flex gap-1 rounded-full">
-                                <Button onClick={() => setFilter('all')}>
+                                <Button 
+                                onClick={() => setFilter('all')}
+                                variant="outline"
+                                className={
+                                  filter === 'all'
+                                  ? 'bg-orange-500 text-white'
+                                  :mode === 'dark' 
+                                  ? "bg-black text-white" 
+                                  : "bg-white text-black"}
+                                >
                                     All
                                 </Button>
-                                <Button onClick={() => setFilter('active')}>
+                                <Button 
+                                onClick={() => setFilter('active')}
+                                variant="outline"
+                                className={
+                                  filter === 'active'
+                                  ? 'bg-orange-500 text-white'
+                                  :mode === 'dark' 
+                                  ? "bg-black text-white" 
+                                  : "bg-white text-black"}
+                                >
                                     Active
                                 </Button>
-                                <Button onClick={() => setFilter('inactive')}>
+                                <Button 
+                                onClick={() => setFilter('inactive')}
+                                variant="outline"
+                                className={
+                                  filter === 'inactive'
+                                  ? 'bg-orange-500 text-white'
+                                  :mode === 'dark' 
+                                  ? "bg-black text-white" 
+                                  : "bg-white text-black"}
+                                >
                                     Inactive
                                 </Button>
 
@@ -178,7 +206,7 @@ export default function Home() {
 
                             </div>
                         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-10">
         {filteredExtensions?.map((ext) => (
           <Dashboard key={ext.id}{...ext} 
           mode={mode}
