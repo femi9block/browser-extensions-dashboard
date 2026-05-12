@@ -138,8 +138,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b-from-[#050A1D] to-[#09153F] px-4 py-8 md:px-6 md:py-8">
       <main className={`max-w-6xl mx-auto px-5 ${mode === 'dark' ? 'bg-blue-950' : 'bg-blue-100'}`}>
         <div className="flex flex-col justify-between py-5">
-                          <div className="flex flex-row justify-between 
-                          py-5 px-10 items-between rounded-3xl object-contain text-white
+                          <div className="flex flex-row justify-between py-5 px-10 items-between rounded-3xl object-contain text-white
                           bg-[#1F2535]">
                             <Image src={'/assets/images/logo.svg'}
                             alt="logo"
